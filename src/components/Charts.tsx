@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Expense } from "@/types";
 import {
   BarChart,
   Bar,
@@ -14,7 +15,7 @@ import {
 } from "recharts";
 
 type ChartsProps = {
-  expenses: any[];
+  expenses: Expense[];
 };
 
 const COLORS = ["#6366f1", "#22c55e", "#ef4444", "#facc15", "#06b6d4"];

@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { Expense } from "@/types";
 
 type ExpenseFormProps = {
-  onAdd: (expense: any) => void;
+  onAdd: (expense: Expense) => void;
 };
 
 export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
