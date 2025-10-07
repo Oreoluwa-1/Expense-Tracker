@@ -23,6 +23,7 @@ const COLORS = ["#6366f1", "#22c55e", "#ef4444", "#facc15", "#06b6d4"];
 export default function Charts({ expenses }: ChartsProps) {
   type CategoryTotal = { category: string; total: number };
 
+  // Group and sum expenses by category
   const byCategory: CategoryTotal[] = Object.values(
     expenses.reduce((acc: Record<string, CategoryTotal>, e) => {
       acc[e.category] = acc[e.category] || { category: e.category, total: 0 };
@@ -33,6 +34,7 @@ export default function Charts({ expenses }: ChartsProps) {
 
   return (
     <div className="grid sm:grid-cols-2 gap-6">
+      {/* Bar Chart */}
       <div className="bg-white p-4 rounded-lg shadow-md">
         <h3 className="text-lg font-semibold mb-3 text-indigo-700">
           Expense by Category (Bar)
@@ -47,6 +49,7 @@ export default function Charts({ expenses }: ChartsProps) {
         </ResponsiveContainer>
       </div>
 
+      {/* Pie Chart */}
       <div className="bg-white p-4 rounded-lg shadow-md">
         <h3 className="text-lg font-semibold mb-3 text-indigo-700">
           Expense by Category (Pie)
@@ -60,8 +63,8 @@ export default function Charts({ expenses }: ChartsProps) {
               outerRadius={80}
               label
             >
-              {byCategory.map((_: any, index) => (
-                <Cell key={index} fill={COLORS[index % COLORS.length]} />
+              {byCategory.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
             <Tooltip />
