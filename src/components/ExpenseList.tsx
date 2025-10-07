@@ -2,10 +2,14 @@
 
 import React from "react";
 
-type ExpenseListProps = {
-  expenses: any[];
+import { Expense } from "@/types";
+
+interface ExpenseListProps {
+  expenses: Expense[];
   onDelete: (id: string) => void;
-};
+  onEdit: (expense: Expense) => void;
+}
+
 
 export default function ExpenseList({ expenses, onDelete }: ExpenseListProps) {
   if (expenses.length === 0)

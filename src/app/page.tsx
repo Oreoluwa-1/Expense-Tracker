@@ -4,9 +4,10 @@ import React, { useState, useEffect } from "react";
 import ExpenseForm from "@/components/ExpenseForm";
 import ExpenseList from "@/components/ExpenseList";
 import Charts from "@/components/Charts";
+import { Expense } from "@/types";
 
 export default function HomePage() {
-  const [expenses, setExpenses] = useState<any[]>([]);
+  const [expenses, setExpenses] = useState<Expense[]>([]);
 
   // Load from localStorage on first render
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function HomePage() {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses]);
 
-  const addExpense = (expense: any) => {
+  const addExpense = (expense: Expense) => {
     setExpenses([...expenses, expense]);
   };
 
