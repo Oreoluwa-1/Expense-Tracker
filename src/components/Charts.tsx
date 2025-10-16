@@ -36,7 +36,7 @@ export default function Charts({ expenses }: ChartsProps) {
     <div className="grid sm:grid-cols-2 gap-6">
       {/* Bar Chart */}
       <div className="bg-white p-4 rounded-lg shadow-md">
-        <h3 className="text-lg font-semibold mb-3 text-indigo-700">
+        <h3 className="text-lg font-semibold mb-3 text-[#EA580C]">
           Expense by Category (Bar)
         </h3>
         <ResponsiveContainer width="100%" height={250}>
@@ -51,7 +51,7 @@ export default function Charts({ expenses }: ChartsProps) {
 
       {/* Pie Chart */}
       <div className="bg-white p-4 rounded-lg shadow-md">
-        <h3 className="text-lg font-semibold mb-3 text-indigo-700">
+        <h3 className="text-lg font-semibold mb-3 text-[#EA580C]">
           Expense by Category (Pie)
         </h3>
         <ResponsiveContainer width="100%" height={250}>

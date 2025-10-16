@@ -87,7 +87,7 @@ export default function HomePage() {
            Expenses Tracker
         </h1>
 
-        {/* Month Selector */}
+        
        {/* Month Selector */}
 <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-4 rounded-lg shadow-md border border-[#FED7AA] mb-6">
   <h2 className="text-lg font-semibold text-[#D97706] mb-3 sm:mb-0">
