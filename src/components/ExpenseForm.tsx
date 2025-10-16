@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { Expense } from "@/types";
+import { v4 as uuidv4 } from "uuid";
 
-type ExpenseFormProps = {
+type Props = {
   onAdd: (expense: Expense) => void;
 };
 
-export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
+export default function ExpenseForm({ onAdd }: Props) {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
@@ -17,7 +17,7 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
     e.preventDefault();
     if (!title || !amount || !category) return;
 
-    const newExpense = {
+    const newExpense: Expense = {
       id: uuidv4(),
       title,
       amount: parseFloat(amount),
@@ -34,34 +34,39 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-4 rounded-lg shadow-md flex flex-col sm:flex-row gap-3"
+      className="bg-white p-5 rounded-lg shadow-md border border-[#FED7AA]"
     >
-      <input
-        type="text"
-        placeholder="Expense title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="border p-2 rounded flex-1 text-black"
-      />
-      <input
-        type="number"
-        placeholder="Amount"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-        className="border p-2 rounded w-24 text-black"
-      />
-      <input
-        type="text"
-        placeholder="Category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        className="border p-2 rounded flex-1 text-black"
-      />
+      <h2 className="text-lg font-semibold mb-4 text-[#D97706]">
+        Add New Expense
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <input
+          type="text"
+          placeholder="Expense title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:border-[#F97316] text-black"
+        />
+        <input
+          type="number"
+          placeholder="Amount (₦)"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          className="border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:border-[#F97316] text-black"
+        />
+        <input
+          type="text"
+          placeholder="Category (e.g. Food, Transport)"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:border-[#F97316] text-black"
+        />
+      </div>
       <button
         type="submit"
-        className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
+        className="mt-4 bg-[#F97316] hover:bg-[#EA580C] text-white px-5 py-2 rounded-lg w-full sm:w-auto text-sm font-medium"
       >
-        Add
+        Add Expense
       </button>
     </form>
   );
